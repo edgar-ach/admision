@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 encoding//app/views/main.html=UTF-8
 encoding/<project>=UTF-8
+=======
+eclipse.preferences.version=1
+encoding//app/views/Secure/layout.html=UTF-8
+encoding/<project>=UTF-8
+>>>>>>> 561d0f486e966f3dff923ccc055201da5cebeacd
