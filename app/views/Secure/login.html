@@ -1,36 +1,44 @@
 #{extends 'main.html' /}
 
-<div class="well">
+<div class="well" role="form">
+
+	<h3>&{'secure.title'}</h3>
+
+	#{form @authenticate()} #{if flash.error}
+	<p class="error">&{flash.error}</p>
+	#{/if} #{if flash.success}
+	<p class="success">&{flash.success}</p>
+	#{/if}
+	<div class="form-group">
+
+
+		<label class="col-lg-2 control-label">&{'secure.username'}</label>
+		<div class="col-lg-10">
+			<input type="email" class="form-control" name="username"
+				 placeholder="yo@example.com">
+		</div>
+
+	</div>
+
+	<div class="from-group">
+
+		<label for="password" class="col-lg-2 control-label">&{'secure.password'}</label>
+		<div class="col-lg-10">
+			<input type="password" class="form-control" 
+				placeholder="Contraseña" name="password">
+		</div>
+
+	</div>
 	
-	<h1>&{'secure.title'}</h1>
-		
-	#{form @authenticate()}
-		
-		#{if flash.error}
-			<p class="error">
-				&{flash.error}
-			</p>
-		#{/if}
-		#{if flash.success}
-			<p class="success">
-				&{flash.success}
-			</p>
-		#{/if}
-	
-		<p id="username-field">
-			<label for="username">&{'secure.username'}</label>
-			<input type="text" name="username" id="username" value="${flash.username}" />
-		</p>
-		<p id="password-field">
-			<label for="password">&{'secure.password'}</label>
-			<input type="password" name="password" id="password" value="" />
-		</p>
-		<p id="remember-field">
-			<input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
-			<label for="remember">&{'secure.remember'}</label>
-		</p>
-		<p id="signin-field">
-			<input type="submit" id="signin" value="&{'secure.signin'}" />
-		</p>
+	<p id="remember-field">
+		<input type="checkbox" name="remember" id="remember" value="true"
+			${flash.remember ? 'checked="true" ' : ''} /> <label for="remember">&{'secure.remember'}</label>
+	</p>
+	<p >
+		<input type="submit" class="btn btn-success" value="&{'secure.signin'}" />
+	</p>
+	<p >
+		<a href="">Registar ahora !!!</a>
+	</p>
 	#{/form}
 </div>
