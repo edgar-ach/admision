@@ -1,10 +1,11 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class Pais {
-	public static List<String> paises;
+	public static List<String> paises=new ArrayList<String>();;
 	
 	public Pais(){
 		paises.add("Ecuador");

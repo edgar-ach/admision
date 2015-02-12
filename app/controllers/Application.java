@@ -11,13 +11,10 @@ import play.mvc.With;
 public class Application extends Controller {
 	
 
-	
-
     public static void index() {
-    	Pais paises=new Pais();
-    	List<String> listaPaises=paises.obtenerListado();
+
     	
-        render(listaPaises);
+        render();
     }
 
 }
