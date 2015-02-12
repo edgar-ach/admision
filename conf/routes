@@ -5,8 +5,11 @@
 # Home page
 GET     /                                       Application.index
 
+# Home page
+*      /users                                   Security.users
+
 # Import Secure routes
-*      /                module:secure
+*      /                						module:secure
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
