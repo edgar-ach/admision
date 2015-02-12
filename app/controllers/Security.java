@@ -13,7 +13,9 @@ public class Security extends Secure.Security {
 		render();
 	}
 
-	public static void nuevo() {
-
+	public static void nuevo(String nombre, String apellido, String email, String clave) {
+		Usuario usu = new Usuario(nombre, apellido, email, clave);
+		usu.save();
+		redirect("/");
 	}
 }
