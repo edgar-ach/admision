@@ -1,18 +1,21 @@
 package models;
 
-import javax.persistence.Entity;
+import java.util.List;
 
-import play.data.validation.Required;
 
-@Entity
 public class Pais {
-	public String nombre;
-
-	public Pais(String nombre) {
-		super();
-		this.nombre = nombre;
+	public static List<String> paises;
+	
+	public Pais(){
+		paises.add("Ecuador");
+		paises.add("Perú");
+		paises.add("Colombia");
+		paises.add("Chile");
+		paises.add("Paraguay");
 	}
 	
-	
+	public static List<String> obtenerListado(){
+		return paises;
+	}
 
 }
