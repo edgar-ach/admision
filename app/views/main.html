@@ -37,6 +37,34 @@
 		    				
 	    					<div class="col-lg-6">
 		    				
+		    				
+		    				<!-- Inicio de Tabs de Navegacion -->
+		    					<script>
+								
+								$(document).ready(function(){
+									$("#datos").removeClass("active");
+									$("#estudios").removeClass("active");
+									$("#trabajo").removeClass("active");
+									$("#documentacion").removeClass("active");
+									$("#cuenta").removeClass("active");
+									$("#registro").removeClass("active");
+								}
+								);
+								
+								</script>
+								
+								<ul class="nav nav-tabs">  
+								<li id="datos"><a href="#">Datos</a></li>     
+								<li id="estudios"><a href="/estudios">Estudios</a></li>  
+								<li id="trabajo"><a href="#">Trabajo</a></li>   
+								<li id="documentacion"><a href="#">Documentación</a></li>   
+								<li><a href="" id="cuenta">Cuenta</a></li>   
+								<li id="registro"><a href="/users">Registro</a></li>  
+								</ul>  
+								
+								<br>
+						<!-- Fin de Tabs de Navegacion -->
+								
 		    					   #{doLayout /}
 		    					
 		    				</div>
