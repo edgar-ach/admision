@@ -22,3 +22,5 @@ GET     /public/                                staticDir:public
 
 #Para registrar informacion sobre los estudios del postulante
 *		/estudios								Estudios.index
+#Para registrar informacion sobre el trabajo del postulante
+*		/trabajos								Trabajos.index
