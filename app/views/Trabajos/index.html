@@ -13,7 +13,7 @@
 					
 					rules: {
 						lugar:{required: true},
-						telefono:{required: true,numbersonly:true,minlength: 10},
+						telefono:{required: true, numbersonly:true, minlength: 10, number : true},
 						direccion: {required: true},
 						email:{required: true, email:true},
 					},	
@@ -28,7 +28,8 @@
 						telefono:{
 							required: "Ingrese el número de teléfono de su trabajo",
 							numbersonly: "Ingrese solamente números",
-							minlength: "Ingrese minimo 10 digitos"
+							minlength: "Ingrese minimo 10 digitos",
+							number: "Ingrese solamente números"
 							
 						},
 						
@@ -50,7 +51,7 @@
 		</script>
 		
 		
-		#{form @Trabajos.guardar(), id:'formTrabajo'}
+		#{form @Trabajos.guardar(lugar,telefono,direccion,email), id:'formTrabajo'}
     
 	              <div class="panel panel-primary">
 	  

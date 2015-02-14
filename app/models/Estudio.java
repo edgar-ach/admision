@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 import play.db.jpa.Model;
 
@@ -13,6 +14,7 @@ public class Estudio extends Model{
 	public String pais;
 	public String provincia;
 	public String ciudad;
+	@ManyToOne
 	public Usuario usuario;
 	
 	public Estudio(String titulo, String universidad, String pais,
