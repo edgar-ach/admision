@@ -1,18 +1,58 @@
 #{extends 'main.html' /}
 		<script>
+			
 								
 			$(document).ready(function(){
 				$("#estudios").addClass("active");
-			}
-			);
+				
+			
+				
+				// validando formulario	
+				$("#formEstudios").validate({
+					
+					rules: {
+						titulo:{required: true,lettersonly: true},
+						universidad:{required: true},
+						provincia: {required: true},
+						pais:{required: true},
+						ciudad: {required: true, minlength: 5}
+					},	
+				
+					messages: {
+						
+						titulo: {
+							required: "Ingrese su título de tercer nivel",
+							lettersonly: "Por favor ingrese solamente letras"
+						
+						},
+						
+						universidad:{
+							required: "Ingrese la universidad donde obtuvo el título"
+						},
+						
+						provincia: {
+							required: "Ingrese la provincia de la Universidad"
+						},
+						pais:{
+							required: "Seleccione el pais de la Universidad"
+						},
+						ciudad: {
+							required: "Ingrese la Ciudad de la Universidad",
+							minlength: "Debe tener minimo 5 caracteres"
+						}
+					}
+						
+				});
+				
+			});
 		
 		</script>
-  	              
+  	             #{form @Estudios.guardar(titulo,universidad,pais,provincia,ciudad),id:'formEstudios'} 
 	              <div class="panel panel-primary">
 	  
 					 
 						<div class="panel-heading">
-							<div class="panle-tittle"><b>Estudios Superiores</b></div>
+							<div class="panel-tittle"><b>Estudios Superiores</b></div>
 						</div>
 			
 						
@@ -21,7 +61,7 @@
 							<div class="form-group">
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Título de Tercer Nivel: </label>
                                  <div class="col-md-7">
-                                    	 <input  type="text" name="titulo" id="titulo" class="form-control" required placeholder="Ej: Ingerniería en Sistemas.">
+                                    	 <input  type="text" name="titulo" id="titulo" class="form-control" placeholder="Ej: Ingeniero en Sistemas.">
 		
                                  </div>			
 							
@@ -30,9 +70,9 @@
 							<br>
 
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Universidad: </label>
+							 <label for="" class="col-md-5 control-label text-right" id="msj1">Nombre de la Universidad: </label>
                                  <div class="col-md-7">
-                                    	 <input  type="text" name="universidad" id="universidad" class="form-control" required placeholder="Ej: Universidad Técnica de Cotopaxi.">
+                                    	 <input  type="text" name="universidad" id="universidad" class="form-control" placeholder="Ej: Universidad Técnica de Cotopaxi.">
                                  </div>			
 							</div>
 							<br>
@@ -40,12 +80,13 @@
 							
 					
 							  <div class="form-group">
-                             	 <label for="" class="col-md-5 control-label text-right">País: </label>
+                             	 <label for="" class="col-md-5 control-label text-right">País de la Universidad: </label>
                                
                                  <div class="col-md-5">
-                                    	<select id="plataforma" name="plataforma" class="form-control selectpicker">
+                                    	<select id="pais" name="pais" class="form-control selectpicker" >
+                                    		<option value="">-- seleccione --</option>
                                     		#{list items:listaPaises, as:'pais'}
-                                    		<option>${pais}</option>
+                                    		<option value="${pais}">${pais}</option>
                                     		#{/list}
 										</select>
 		
@@ -54,20 +95,21 @@
                              </div>				
 								<br>
 							    <br>
+							    <br>
 							    
 							<div class="form-group">
-								 <label for="" class="col-md-5 control-label text-right" id="msj1">Provincia: </label>
+								 <label for="" class="col-md-5 control-label text-right" id="msj1">Provincia de la Universidad: </label>
                                  <div class="col-md-7">
-                                    	 <input  type="text" name="provincia" id="provincia" class="form-control" required placeholder="Ej: Cotopaxi.">
+                                    	 <input  type="text" name="provincia" id="provincia" class="form-control" placeholder="Ej: Cotopaxi.">
                                  </div>			
 							</div>
 							<br>
 							<br>
 							
 							<div class="form-group">
-								 <label for="" class="col-md-5 control-label text-right" id="msj1">Ciudad: </label>
+								 <label for="" class="col-md-5 control-label text-right" id="msj1">Ciudad de la Universidad: </label>
                                  <div class="col-md-7">
-                                    	 <input  type="text" name="ciudad" id="ciudad" class="form-control" required placeholder="Ej: Latacunga.">
+                                    	 <input  type="text" name="ciudad" id="ciudad" class="form-control" placeholder="Ej: Latacunga.">
                                  </div>			
 							</div>
 							<br>
@@ -84,7 +126,7 @@
 						 </div>	<!--panel body  -->
 					 
 					 </div><!--panel info  -->
-					 	
+					 #{/form}	
 					
 						
 			

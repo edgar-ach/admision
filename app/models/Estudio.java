@@ -8,18 +8,25 @@ import play.db.jpa.Model;
 public class Estudio extends Model{
 	
 	
-	String titulo;
-	String universidad;
-	String provincia;
-	String ciudad;
-	public Estudio(String titulo, String universidad, String provincia,String ciudad) {
+	public String titulo;
+	public String universidad;
+	public String pais;
+	public String provincia;
+	public String ciudad;
+	public Usuario usuario;
+	
+	public Estudio(String titulo, String universidad, String pais,
+			String provincia, String ciudad, Usuario usuario) {
 		super();
 		this.titulo = titulo;
 		this.universidad = universidad;
+		this.pais = pais;
 		this.provincia = provincia;
 		this.ciudad = ciudad;
+		this.usuario = usuario;
 	}
 	
+
 	
 	
 }
