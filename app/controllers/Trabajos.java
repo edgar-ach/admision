@@ -7,5 +7,9 @@ public class Trabajos extends Controller {
     public static void index() {
         render();
     }
-
+    
+    public static void guardar(){
+    	
+    	redirect("/");
+    }
 }

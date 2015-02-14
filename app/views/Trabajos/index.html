@@ -3,10 +3,52 @@
 								
 			$(document).ready(function(){
 				$("#trabajo").addClass("active");
-			}
-			);
+				
+				
+				
+				
+				
+				// validando formulario	
+				$("#formTrabajo").validate({
+					
+					rules: {
+						lugar:{required: true},
+						telefono:{required: true,minlength: 10},
+						direccion: {required: true},
+						email:{required: true, email:true},
+					},	
+				
+					messages: {
+						
+						lugar: {
+							required: "Ingrese el nombre de la Institución donde trabaja"
+					
+						},
+						
+						telefono:{
+							required: "Ingrese el número de teléfono de su trabajo",
+							minlength: "Ingrese minimo 10 digitos"
+						},
+						
+						direccion: {
+							required: "Ingrese la dirección de su trabajo"
+						},
+						email:{
+							required: "Ingrese el email de su trabajo",
+							email: "Ingrese una dirección de email valida"
+						}
+					}
+						
+				});
+					
+
+			
+			});
 		
 		</script>
+		
+		
+		#{form @Trabajos.guardar(), id:'formTrabajo'}
     
 	              <div class="panel panel-primary">
 	  
@@ -21,7 +63,7 @@
 							<div class="form-group">
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Lugar de Trabajo: </label>
                                  <div class="col-md-7">
-                                    	 <input  type="text" name="lugar" id="lugar" class="form-control" required placeholder="Nombre de la Institución">
+                                    	 <input  type="text" name="lugar" id="lugar" class="form-control" placeholder="Nombre de la Institución">
 		
                                  </div>			
 							
@@ -32,7 +74,7 @@
 							<div class="form-group">
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Télefono del Trabajo: </label>
                                  <div class="col-md-7">
-                                    	 <input  type="text" name="telefono" id="telefono" class="form-control" required placeholder="Celular o Convencional">
+                                    	 <input  type="text" name="telefono" id="telefono" class="form-control" placeholder="Celular o Convencional">
                                  </div>			
 							</div>
 							<br>
@@ -43,7 +85,7 @@
 							<div class="form-group">
 								 <label for="" class="col-md-5 control-label text-right" id="msj1">Dirección del Trabajo: </label>
                                  <div class="col-md-7">
-                                    	 <input  type="text" name="direccion" id="direccion" class="form-control" required placeholder="Número, Calles, Ciudad">
+                                    	 <input  type="text" name="direccion" id="direccion" class="form-control" placeholder="Número, Calles, Ciudad">
                                  </div>			
 							</div>
 							<br>
@@ -52,7 +94,7 @@
 							<div class="form-group">
 								 <label for="" class="col-md-5 control-label text-right" id="msj1">E-mail del Trabajo: </label>
                                  <div class="col-md-7">
-                                    	 <input  type="email" name="email" id="email" class="form-control" required placeholder="Correo Electrónico del trabajo">
+                                    	 <input  type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico del trabajo">
                                  </div>			
 							</div>
 							<br>
@@ -69,4 +111,4 @@
 						 </div>	<!--panel body  -->
 					 
 					 </div><!--panel info  -->
-					 	
+	#{/form}		 	
