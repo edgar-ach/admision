@@ -3,11 +3,75 @@
 								
 			$(document).ready(function(){
 				$("#documentacion").addClass("active");
-			}
-			);
+				
+				
+				// validando formulario	
+				$("#formDocumentos").validate({
+					
+					rules: {
+						maestria:{required: true},
+						recibo:{required: true,extension: "docx|rtf|doc|pdf",filesize: 1048576*10},
+						curriculum: {required: true},
+						cedula:{required: true},
+						votacion:{required: true},
+						titulo:{required: true},
+						registro:{required: true},
+						suficiencia:{required: true}
+					},	
+				
+					messages: {
+						
+						maestria: {
+							required: "Seleccione el programa de maestria al que desea postular"
+					
+						},
+						
+						recibo:{
+							required: "Seleccione el escaneado de su recibo de pago",
+							extension: "Formato Incorrecto",
+							filesize: "El tamaño del archivo no debe ser a 10MB"
+						},
+						
+						curriculum: {
+							required: "Seleccione el documento con su curriculum"
+						},
+						cedula:{
+							required: "Seleccione el escaneado de su cédula"
+						},
+						votacion:{
+							required: "Seleccione el escaneado de su certificado de votación"
+						},
+						titulo:{
+							required: "Seleccione el escaneado de su título de Tercer Nivel"
+						},
+						registro:{
+							required: "Seleccion el escaneado del registro de la SENESCYT "
+						},
+						suficiencia:{
+							required: "Seleccion el escaneado del certificado de la Suficiencia del Idioma Extranjero"
+						}
+					}
+						
+				});
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			});
 		
 		</script>
-
+	
+	
+	
+			#{form @Documentos.guardar(),id:'formDocumentos'}
 	              <div class="panel panel-primary">
 	  
 					 
@@ -22,9 +86,10 @@
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Seleccione la Maestría: </label>
                                  <div class="col-md-7">
                                     	 <select id="maestria" name="maestria" class="form-control selectpicker">
-                                    		<option>Maestría en Planeamiento y Gestión Educativa</option>
-                                    		<option>Maestría en Gestión de Energías</option>
-                                    		<option>Maestría en Gestión de la Producción</option>
+                                    	 	<option value="">-- seleccione --</option>
+                                    		<option value="1" >Maestría en Planeamiento y Gestión Educativa</option>
+                                    		<option value="2" >Maestría en Gestión de Energías</option>
+                                    		<option value="3" >Maestría en Gestión de la Producción</option>
 										</select>
 		
                                  </div>			
@@ -32,71 +97,80 @@
 							</div>
 							<br>
 							<br>
-
+							
+							
 							<div class="form-group">
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Recibo de Pago de Inscripción Efectuado en la Tesorería (Escaneado): </label>
                                  <div class="col-md-7">
-                                 		 <br>
-                                    	 <input  type="file" name="recibo" id="recibo" required >
-                                 </div>			
+                                 			&nbsp;
+                                    	 <input  type="file" name="recibo" id="recibo" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf">
+                                    	 
+                                 </div>	
 							</div>
-							<br>
+							<br><br>
 							<br>
 							<br>
 							<div class="form-group">
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Curriculum (Máximo 2 Hojas): </label>
                                  <div class="col-md-7">
-                                    	 <input  type="file" name="curriculum" id="curriculum" required >
+                                 		
+                                    	 <input  type="file" name="curriculum" id="curriculum" class="btn btn-default btn-file"   >
                                  </div>			
 							</div>
+							<br>
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia de la Cédula (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Copia de la Cédula (Escaneado): </label>
                                  <div class="col-md-7">
-                                    	 <input  type="file" name="cedula" id="cedula" required >
+                                 		
+                                    	 <input  type="file" name="cedula" id="cedula"  class="btn btn-default btn-file"  >
                                  </div>			
 							</div>
+							<br>
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia del Certificado de Votación (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Copia del Certificado de Votación (Escaneado): </label>
                                  <div class="col-md-7">
-                                    	 <input  type="file" name="votacion" id="votacion" required >
+                                 
+                                    	 <input  type="file" name="votacion" id="votacion" class="btn btn-default btn-file"   >
                                  </div>			
 							</div>
 							<br>
 							<br>
-							
+							<br>
 							<div class="form-group">
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia del Título de Tercer Nivel (Escaneado): </label>
                                  <div class="col-md-7">
-                                    	 <input  type="file" name="titulo" id="titulo" required >
-                                 </div>			
-							</div>
-							<br>
-							<br>
-							
-								
-								
-							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Registro del Título de Tercer Nivel de la SENESCYT (Escaneado): </label>
-                                 <div class="col-md-7">
-                                 		<br>
-                                    	 <input  type="file" name="registro" id="registro" required >
+                                    	 <input  type="file" name="titulo" id="titulo" class="btn btn-default btn-file"  >
                                  </div>			
 							</div>
 							<br>
 							<br>
 							<br>
 							
+								
+								
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Certificado de la Suficiencia del idioma Extranjero (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Registro del Título de Tercer Nivel de la SENESCYT (Escaneado): </label>
                                  <div class="col-md-7">
                                  		<br>
-                                    	 <input  type="file" name="Suficiencia" id="suficiencia" required >
+                                    	 <input  type="file" name="registro" id="registro" class="btn btn-default btn-file"   >
                                  </div>			
 							</div>
+							<br>
+							<br>
+							<br>
+							<br>
+							<div class="form-group">
+							 <label for="" class="col-md-5 control-label text-right" >Certificado de la Suficiencia del idioma Extranjero (Escaneado): </label>
+                                 <div class="col-md-7">
+                                 		<br>
+                                    	 <input  type="file" name="suficiencia" id="suficiencia" class="btn btn-default btn-file"  >
+                                 </div>			
+							</div>
+							<br>
 							<br>
 							<br>
 							<br>
@@ -104,20 +178,21 @@
 							<div class="form-group">
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia de Artículos Publicados en Revistas Indexadas ( Si lo Tuviere Escaneado): </label>
                                  <div class="col-md-7">
-                                 		<br>
-                                    	 <input  type="file" name="Suficiencia" id="suficiencia">
+                                 		<br><br>
+                                    	 <input  type="file" name="articulos" id="articulos" class="btn btn-default btn-file"  >
                                  </div>			
 							</div>
 							<br>
 							<br>
 							<br>
-							
+							<br>
 							
 					
 				
 							<div class="form-group">
 								 
                                  <div class="col-md-12">
+                                 		<br>
                                     	 <button type="submit" class="form-control btn btn-primary"><b>GUARDAR</b></button>
                                  </div>			
 							</div>
@@ -127,4 +202,4 @@
 						 </div>	<!--panel body  -->
 					 
 					 </div><!--panel info  -->
-					 	
+			#{/form}		 	
