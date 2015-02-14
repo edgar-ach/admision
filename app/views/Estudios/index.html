@@ -12,10 +12,10 @@
 					
 					rules: {
 						titulo:{required: true,lettersonly: true},
-						universidad:{required: true},
-						provincia: {required: true},
+						universidad:{required: true,lettersonly: true},
+						provincia: {required: true,lettersonly: true},
 						pais:{required: true},
-						ciudad: {required: true, minlength: 5}
+						ciudad: {required: true, lettersonly: true}
 					},	
 				
 					messages: {
@@ -27,18 +27,21 @@
 						},
 						
 						universidad:{
-							required: "Ingrese la universidad donde obtuvo el título"
+							required: "Ingrese la universidad donde obtuvo el título",
+							lettersonly: "Por favor ingrese solamente letras"
+							
 						},
 						
 						provincia: {
-							required: "Ingrese la provincia de la Universidad"
+							required: "Ingrese la provincia de la Universidad",
+							lettersonly: "Por favor ingrese solamente letras"
 						},
 						pais:{
 							required: "Seleccione el pais de la Universidad"
 						},
 						ciudad: {
 							required: "Ingrese la Ciudad de la Universidad",
-							minlength: "Debe tener minimo 5 caracteres"
+							lettersonly: "Por favor ingrese solamente letras"
 						}
 					}
 						
