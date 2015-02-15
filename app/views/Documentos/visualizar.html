@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+
+>>>>> ${path}
+<BR><BR>
+#{list items:models.Documentacion.findById(15L), as:'recibo'}
+   
+  <object  width="600" height="500" type="application/pdf" data="@{verRegistro(recibo.id)}#zoom=50" >
+  No se puede abrir
+  </object>
+  <img src="@{verRecibo(recibo.id)}" height="500px" width="600px">
+#{/list}
+  
+<!-- 
+ <img src="@ --{imagen}" height="200px" width="200px">
+  -->
+  
+  
+ 
+  

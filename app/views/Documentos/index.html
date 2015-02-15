@@ -10,13 +10,14 @@
 					
 					rules: {
 						maestria:{required: true},
-						recibo:{required: true,extension: "docx|rtf|doc|pdf",filesize: 1048576*10},
-						curriculum: {required: true},
-						cedula:{required: true},
-						votacion:{required: true},
-						titulo:{required: true},
-						registro:{required: true},
-						suficiencia:{required: true}
+						recibo:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
+						curriculum: {required: true,extension: "docx|doc|pdf",filesize: 1048576*10},
+						cedula:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
+						votacion:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
+						titulo:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
+						registro:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
+						suficiencia:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
+						articulos:{extension: "docx|doc|pdf",filesize: 1048576*10}
 					},	
 				
 					messages: {
@@ -28,27 +29,37 @@
 						
 						recibo:{
 							required: "Seleccione el escaneado de su recibo de pago",
-							extension: "Formato Incorrecto",
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png",
 							filesize: "El tamaño del archivo no debe ser a 10MB"
 						},
 						
 						curriculum: {
-							required: "Seleccione el documento con su curriculum"
+							required: "Seleccione el documento con su curriculum",
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc"
 						},
 						cedula:{
-							required: "Seleccione el escaneado de su cédula"
+							required: "Seleccione el escaneado de su cédula",
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
+							
 						},
 						votacion:{
-							required: "Seleccione el escaneado de su certificado de votación"
+							required: "Seleccione el escaneado de su certificado de votación",
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
 						},
 						titulo:{
-							required: "Seleccione el escaneado de su título de Tercer Nivel"
+							required: "Seleccione el escaneado de su título de Tercer Nivel",
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
 						},
 						registro:{
-							required: "Seleccion el escaneado del registro de la SENESCYT "
+							required: "Seleccion el escaneado del registro de la SENESCYT ",
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
 						},
 						suficiencia:{
-							required: "Seleccion el escaneado del certificado de la Suficiencia del Idioma Extranjero"
+							required: "Seleccion el escaneado del certificado de la Suficiencia del Idioma Extranjero",
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
+						},
+						articulos:{
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc"
 						}
 					}
 						
@@ -71,7 +82,7 @@
 	
 	
 	
-			#{form @Documentos.guardar(),id:'formDocumentos'}
+			#{form @Documentos.guardar(maestria,recibo,curriculum,cedula,votacion,titulo,registro,suficiencia,articulos), enctype:'multipart/form-data', id:'formDocumentos'}
 	              <div class="panel panel-primary">
 	  
 					 
@@ -87,9 +98,9 @@
                                  <div class="col-md-7">
                                     	 <select id="maestria" name="maestria" class="form-control selectpicker">
                                     	 	<option value="">-- seleccione --</option>
-                                    		<option value="1" >Maestría en Planeamiento y Gestión Educativa</option>
-                                    		<option value="2" >Maestría en Gestión de Energías</option>
-                                    		<option value="3" >Maestría en Gestión de la Producción</option>
+                                    		<option value="Maestría en Planeamiento y Gestión Educativa" >Maestría en Planeamiento y Gestión Educativa</option>
+                                    		<option value="Maestría en Gestión de Energías" >Maestría en Gestión de Energías</option>
+                                    		<option value="Maestría en Gestión de la Producción" >Maestría en Gestión de la Producción</option>
 										</select>
 		
                                  </div>			
@@ -103,7 +114,7 @@
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Recibo de Pago de Inscripción Efectuado en la Tesorería (Escaneado): </label>
                                  <div class="col-md-7">
                                  			&nbsp;
-                                    	 <input  type="file" name="recibo" id="recibo" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf">
+                                    	 <input  type="file" name="recibo" id="recibo" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
                                     	 
                                  </div>	
 							</div>
@@ -111,10 +122,10 @@
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Curriculum (Máximo 2 Hojas): </label>
+							 <label for="" class="col-md-5 control-label text-right">Curriculum (Máximo 2 Hojas): </label>
                                  <div class="col-md-7">
                                  		
-                                    	 <input  type="file" name="curriculum" id="curriculum" class="btn btn-default btn-file"   >
+                                    	 <input  type="file" name="curriculum" id="curriculum" class="btn btn-default btn-file"  accept=".doc,.docx,.pdf" >
                                  </div>			
 							</div>
 							<br>
@@ -124,7 +135,7 @@
 							 <label for="" class="col-md-5 control-label text-right" >Copia de la Cédula (Escaneado): </label>
                                  <div class="col-md-7">
                                  		
-                                    	 <input  type="file" name="cedula" id="cedula"  class="btn btn-default btn-file"  >
+                                    	 <input  type="file" name="cedula" id="cedula"  class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
                                  </div>			
 							</div>
 							<br>
@@ -134,7 +145,7 @@
 							 <label for="" class="col-md-5 control-label text-right" >Copia del Certificado de Votación (Escaneado): </label>
                                  <div class="col-md-7">
                                  
-                                    	 <input  type="file" name="votacion" id="votacion" class="btn btn-default btn-file"   >
+                                    	 <input  type="file" name="votacion" id="votacion" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png" >
                                  </div>			
 							</div>
 							<br>
@@ -143,7 +154,7 @@
 							<div class="form-group">
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia del Título de Tercer Nivel (Escaneado): </label>
                                  <div class="col-md-7">
-                                    	 <input  type="file" name="titulo" id="titulo" class="btn btn-default btn-file"  >
+                                    	 <input  type="file" name="titulo" id="titulo" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
                                  </div>			
 							</div>
 							<br>
@@ -153,10 +164,10 @@
 								
 								
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" >Registro del Título de Tercer Nivel de la SENESCYT (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Copia del Registro del Título de Tercer Nivel de la SENESCYT (Escaneado): </label>
                                  <div class="col-md-7">
                                  		<br>
-                                    	 <input  type="file" name="registro" id="registro" class="btn btn-default btn-file"   >
+                                    	 <input  type="file" name="registro" id="registro" class="btn btn-default btn-file"  accept=".doc,.docx,.pdf,.jpg,.png" >
                                  </div>			
 							</div>
 							<br>
@@ -164,10 +175,10 @@
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" >Certificado de la Suficiencia del idioma Extranjero (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Copia del Certificado de la Suficiencia del idioma Extranjero (Escaneado): </label>
                                  <div class="col-md-7">
                                  		<br>
-                                    	 <input  type="file" name="suficiencia" id="suficiencia" class="btn btn-default btn-file"  >
+                                    	 <input  type="file" name="suficiencia" id="suficiencia" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
                                  </div>			
 							</div>
 							<br>
@@ -179,7 +190,7 @@
 							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia de Artículos Publicados en Revistas Indexadas ( Si lo Tuviere Escaneado): </label>
                                  <div class="col-md-7">
                                  		<br><br>
-                                    	 <input  type="file" name="articulos" id="articulos" class="btn btn-default btn-file"  >
+                                    	 <input  type="file" name="articulos" id="articulos" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
                                  </div>			
 							</div>
 							<br>
