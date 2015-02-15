@@ -10,14 +10,14 @@
 					
 					rules: {
 						maestria:{required: true},
-						recibo:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
-						curriculum: {required: true,extension: "docx|doc|pdf",filesize: 1048576*10},
-						cedula:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
-						votacion:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
-						titulo:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
-						registro:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
-						suficiencia:{required: true,extension: "docx|doc|pdf|jpg|jpeg|png",filesize: 1048576*10},
-						articulos:{extension: "docx|doc|pdf",filesize: 1048576*10}
+						recibo:{required: true,extension: "pdf|jpg|jpeg|png",filesize: 1048576*10},
+						curriculum: {required: true,extension: "pdf",filesize: 1048576*10},
+						cedula:{required: true,extension: "pdf|jpg|jpeg|png",filesize: 1048576*10},
+						votacion:{required: true,extension: "pdf|jpg|jpeg|png",filesize: 1048576*10},
+						titulo:{required: true,extension: "pdf|jpg|jpeg|png",filesize: 1048576*10},
+						registro:{required: true,extension: "pdf|jpg|jpeg|png",filesize: 1048576*10},
+						suficiencia:{required: true,extension: "pdf|jpg|jpeg|png",filesize: 1048576*10},
+						articulos:{extension: "pdf",filesize: 1048576*10}
 					},	
 				
 					messages: {
@@ -29,37 +29,37 @@
 						
 						recibo:{
 							required: "Seleccione el escaneado de su recibo de pago",
-							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png",
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,jpeg,jpg,png",
 							filesize: "El tamaño del archivo no debe ser a 10MB"
 						},
 						
 						curriculum: {
 							required: "Seleccione el documento con su curriculum",
-							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc"
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf"
 						},
 						cedula:{
 							required: "Seleccione el escaneado de su cédula",
-							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,jpeg,jpg,png"
 							
 						},
 						votacion:{
 							required: "Seleccione el escaneado de su certificado de votación",
-							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,jpeg,jpg,png"
 						},
 						titulo:{
 							required: "Seleccione el escaneado de su título de Tercer Nivel",
-							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,jpeg,jpg,png"
 						},
 						registro:{
 							required: "Seleccion el escaneado del registro de la SENESCYT ",
-							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,jpeg,jpg,png"
 						},
 						suficiencia:{
 							required: "Seleccion el escaneado del certificado de la Suficiencia del Idioma Extranjero",
-							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc,jpg,png"
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf,jpeg,jpg,png"
 						},
 						articulos:{
-							extension: "Formato Incorrecto, Puede utilizar archivos pdf,docx,doc"
+							extension: "Formato Incorrecto, Puede utilizar archivos pdf"
 						}
 					}
 						
@@ -111,10 +111,10 @@
 							
 							
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Recibo de Pago de Inscripción Efectuado en la Tesorería (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" id="msj1">Recibo de Pago de Inscripción Efectuado en la Tesorería <span class="formato-archivo"> (Escaneado en formato  jpg, png o pdf): </span></label>
                                  <div class="col-md-7">
                                  			&nbsp;
-                                    	 <input  type="file" name="recibo" id="recibo" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
+                                    	 <input  type="file" name="recibo" id="recibo" class="btn btn-default btn-file"  accept=".jpeg,.jpg,.pdf,.png">
                                     	 
                                  </div>	
 							</div>
@@ -122,39 +122,39 @@
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right">Curriculum (Máximo 2 Hojas): </label>
+							 <label for="" class="col-md-5 control-label text-right">Curriculum <span class="formato-archivo"> (Máximo 2 Hojas en formato pdf): </span> </label>
                                  <div class="col-md-7">
                                  		
-                                    	 <input  type="file" name="curriculum" id="curriculum" class="btn btn-default btn-file"  accept=".doc,.docx,.pdf" >
+                                    	 <input  type="file" name="curriculum" id="curriculum" class="btn btn-default btn-file"  accept=".pdf" >
                                  </div>			
 							</div>
 							<br>
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" >Copia de la Cédula (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Copia de la Cédula <span class="formato-archivo"> (Escaneado en formato  jpg, png o pdf): </span></label>
                                  <div class="col-md-7">
                                  		
-                                    	 <input  type="file" name="cedula" id="cedula"  class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
+                                    	 <input  type="file" name="cedula" id="cedula"  class="btn btn-default btn-file"  accept=".jpeg,.jpg,.pdf,.png">
                                  </div>			
 							</div>
 							<br>
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" >Copia del Certificado de Votación (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Copia del Certificado de Votación <span class="formato-archivo"> (Escaneado en formato  jpg, png o pdf ): </span></label>
                                  <div class="col-md-7">
                                  
-                                    	 <input  type="file" name="votacion" id="votacion" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png" >
+                                    	 <input  type="file" name="votacion" id="votacion" class="btn btn-default btn-file"  accept=".jpeg,.jpg,.pdf,.png" >
                                  </div>			
 							</div>
 							<br>
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia del Título de Tercer Nivel (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia del Título de Tercer Nivel <span class="formato-archivo"> (Escaneado en formato  jpg, png o pdf): </span></label>
                                  <div class="col-md-7">
-                                    	 <input  type="file" name="titulo" id="titulo" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
+                                    	 <input  type="file" name="titulo" id="titulo" class="btn btn-default btn-file"  accept=".jpeg,.jpg,.pdf,.png">
                                  </div>			
 							</div>
 							<br>
@@ -164,10 +164,10 @@
 								
 								
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" >Copia del Registro del Título de Tercer Nivel de la SENESCYT (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Copia del Registro del Título de Tercer Nivel de la SENESCYT <span class="formato-archivo"> (Escaneado en formato  jpg, png o pdf):</span> </label>
                                  <div class="col-md-7">
                                  		<br>
-                                    	 <input  type="file" name="registro" id="registro" class="btn btn-default btn-file"  accept=".doc,.docx,.pdf,.jpg,.png" >
+                                    	 <input  type="file" name="registro" id="registro" class="btn btn-default btn-file"  accept=".jpeg,.pdf,.jpg,.png" >
                                  </div>			
 							</div>
 							<br>
@@ -175,10 +175,10 @@
 							<br>
 							<br>
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" >Copia del Certificado de la Suficiencia del idioma Extranjero (Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" >Copia del Certificado de la Suficiencia del idioma Extranjero <span class="formato-archivo"> (Escaneado en formato  jpg, png o pdf): </span> </label>
                                  <div class="col-md-7">
                                  		<br>
-                                    	 <input  type="file" name="suficiencia" id="suficiencia" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
+                                    	 <input  type="file" name="suficiencia" id="suficiencia" class="btn btn-default btn-file"  accept=".jpeg,.jpg,.pdf,.png">
                                  </div>			
 							</div>
 							<br>
@@ -187,10 +187,10 @@
 							<br>
 							
 							<div class="form-group">
-							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia de Artículos Publicados en Revistas Indexadas ( Si lo Tuviere Escaneado): </label>
+							 <label for="" class="col-md-5 control-label text-right" id="msj1">Copia de Artículos Publicados en Revistas Indexadas <span class="formato-archivo"> ( Si lo Tuviere Escaneado en formato  pdf): </span></label>
                                  <div class="col-md-7">
                                  		<br><br>
-                                    	 <input  type="file" name="articulos" id="articulos" class="btn btn-default btn-file"  accept=".doc,.docx,.jpeg,.jpg,.pdf,.png">
+                                    	 <input  type="file" name="articulos" id="articulos" class="btn btn-default btn-file"  accept=".pdf">
                                  </div>			
 							</div>
 							<br>

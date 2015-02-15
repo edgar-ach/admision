@@ -73,6 +73,60 @@ public class Documentos extends Controller {
     	redirect("/documentacion");
     }
     
+    public static void verArticulo(Long id){
+    	final Documentacion documentos=Documentacion.findById(id);
+    	notFoundIfNull(documentos);
+    	response.setContentTypeIfNotSet(documentos.articulosPublicados.type());
+    	renderBinary(documentos.articulosPublicados.get());
+    	
+    }
+    /////
+    
+    public static void verCedula(Long id){
+    	final Documentacion documentos=Documentacion.findById(id);
+    	notFoundIfNull(documentos);
+    	response.setContentTypeIfNotSet(documentos.copiaCedula.type());
+    	renderBinary(documentos.copiaCedula.get());
+    	
+    }
+    
+    public static void verTitulo(Long id){
+    	final Documentacion documentos=Documentacion.findById(id);
+    	notFoundIfNull(documentos);
+    	response.setContentTypeIfNotSet(documentos.copiaTitulo.type());
+    	renderBinary(documentos.copiaTitulo.get());
+    	
+    }
+    public static void verVotacion(Long id){
+    	final Documentacion documentos=Documentacion.findById(id);
+    	notFoundIfNull(documentos);
+    	response.setContentTypeIfNotSet(documentos.copiaVotacion.type());
+    	renderBinary(documentos.copiaVotacion.get());
+    	
+    }
+    
+    public static void verCurriculum(Long id){
+    	final Documentacion documentos=Documentacion.findById(id);
+    	notFoundIfNull(documentos);
+    	response.setContentTypeIfNotSet(documentos.curriculum.type());
+    	renderBinary(documentos.curriculum.get());
+    	
+    }
+    
+    public static void verMaestria(Long id){
+    	final Documentacion documentos=Documentacion.findById(id);
+    	String maestria=documentos.programaMaestria;
+    	render(maestria);	   	
+    }
+    
+    public static void verSuficiencia(Long id){
+    	final Documentacion documentos=Documentacion.findById(id);
+    	notFoundIfNull(documentos);
+    	response.setContentTypeIfNotSet(documentos.suficienciaIdiomaExtranjero.type());
+    	renderBinary(documentos.suficienciaIdiomaExtranjero.get());
+    	
+    }
+
     public static void verRecibo(Long id){
     	final Documentacion documentos=Documentacion.findById(id);
     	notFoundIfNull(documentos);

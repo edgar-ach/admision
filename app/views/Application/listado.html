@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'listado.html' /}
+
+
+
+<table class="table table-striped table-hover table-bordered">
+	<tr>
+		<th class="text-center">N</th>
+		<th class="text-center">APELLIDO</th>
+		<th class="text-center">NOMBRE</th>
+		<th class="text-center">EMAIL</th>
+		<th class="text-center">OPCIONES</th>
+	</tr>
+	%{int i=0;}%
+	#{list items:usuarios, as:'usuario'}
+	%{i++;}%
+	<tr>
+		 <td>${i}</td>
+		<td class="mayusculas">${usuario.apellido}</td>
+		<td class="mayusculas">${usuario.nombre}</td>
+		<td>${usuario.email}</td>
+		<td><a href="/application/datos?id=${usuario.id}">Ver Información</a></td>
+	
+	</tr>
+	#{/list}
+	
+</table>

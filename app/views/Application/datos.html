@@ -1,0 +1,166 @@
+#{extends 'main.html' /}
+#{set title:'datos.html' /}
+
+#{if usuario==null}
+<h3><li>No hay información sobre los datos personales/li></h3>
+#{/if}
+#{else}
+<div class="row">
+<table class="table table-striped table-hover table-bordered">
+	<tr>
+		<th class="text-center" colspan="2"><h4>DATOS PERSONALES</h4></th>
+	</tr>
+	<tr>
+		<th class="text-right">APELLIDO</th>
+		<td class="mayusculas">${usuario.apellido}</td>
+		
+	</tr>
+	
+	<tr>
+		<th class="text-right">NOMBRE</th>
+		
+		<td class="mayusculas">${usuario.nombre}</td>
+		
+	</tr>
+	<tr>
+		<th class="text-right">EMAIL</th>
+		<td>${usuario.email}</td>
+	</tr>
+</table>
+</div>
+#{/else}
+
+#{if estudios==null}
+<h3><li>No hay información sobre los Estudios</li></h3>
+#{/if}
+#{else}
+<div class="row">
+<table class="table table-striped table-hover table-bordered">
+	<tr>
+		<th class="text-center" colspan="2"><h4>ESTUDIOS SUPERIORES</h4></th>
+	</tr>
+	<tr>
+		<th class="text-right">TÍTULO DE TERCER NIVEL</th>
+		<td>${estudios.titulo}</td>
+		
+	</tr>
+	
+	<tr>
+		<th class="text-right">NOMBRE DE LA UNIVERSIDAD</th>
+		
+		<td class="mayusculas">${estudios.universidad}</td>
+		
+	</tr>
+	<tr>
+		<th class="text-right">PAÍS</th>
+		<td>${estudios.pais}</td>
+	</tr>
+		<tr>
+		<th class="text-right">PROVINCIA</th>
+		<td>${estudios.provincia}</td>
+	</tr>
+	
+	<tr>
+	
+	<th class="text-right">CIUDAD</th>
+		<td>${estudios.ciudad}</td>
+	</tr>
+</table>
+</div>
+#{/else}
+
+#{if trabajo==null}
+<h3><li>No hay información sobre el trabajo</li></h3>
+#{/if}
+#{else}
+<div class="row">
+<table class="table table-striped table-hover table-bordered">
+	<tr>
+		<th class="text-center" colspan="2"><h4>INFORMACIÓN DEL TRABAJO</h4></th>
+	</tr>
+	<tr>
+		<th class="text-right">LUGAR DE TRABAJO</th>
+		<td>${trabajo.lugar}</td>
+		
+	</tr>
+	
+	<tr>
+		<th class="text-right">TELÉFONO</th>
+		
+		<td class="mayusculas">${trabajo.telefono}</td>
+		
+	</tr>
+	<tr>
+		<th class="text-right">DIRECCIÓN</th>
+		<td>${trabajo.direccion}</td>
+	</tr>
+	
+	<tr>
+		<th class="text-right">EMAIL</th>
+		<td>${trabajo.email}</td>
+	</tr>
+
+</table>
+</div>
+#{/else}
+
+<div class="row">
+
+	<h4 class="text-center">DOCUMENTACIÓN REQUERIDA</h4>
+
+	<h5><b>1. Programa Elejido:</b></h5>
+	<li><h4>${documentos.programaMaestria}</h4></li>
+	<br>
+	<h5><b>2. Recibo de Pago de Inscripción:</b></h5>
+	
+	  <object  width="600" height="500" type="image/png"   data="@{Documentos.verRecibo(documentos.id)}#zoom=50" >
+	  No se puede abrir
+	  </object>
+	  
+	<h5><b>3. Curriculum</b></h5>
+	  
+	    <object  width="600" height="500" data="@{Documentos.verCurriculum(documentos.id)}#zoom=50" >
+		  No se puede abrir
+	  	</object>
+	  
+  
+	<h5><b>4. Copia de la Cédula de Identidad:</b></h5>
+  
+    <object  width="600" height="500"  type="image/png" data="@{Documentos.verCedula(documentos.id)}#zoom=50" >
+	  No se puede abrir
+  	</object>
+  	
+  	<h5><b>5. Copia del Certificado de Votación:</b></h5>
+  
+    <object  width="600" height="500"  type="image/png" data="@{Documentos.verVotacion(documentos.id)}#zoom=50" >
+	  No se puede abrir
+  	</object>
+  	
+  	 <h5><b>6. Copia del Título de Tercer Nivel:</b></h5>
+  
+    <object  width="600" height="500"  type="image/png" data="@{Documentos.verTitulo(documentos.id)}#zoom=50" >
+	  No se puede abrir
+  	</object>
+  
+  
+  	
+  	 <h5><b>7. Copia del Registro del Título de Tercer Nivel de la SENESCYT:</b></h5>
+  
+    <object  width="600" height="500"  type="image/png" data="@{Documentos.verRegistro(documentos.id)}#zoom=50" >
+	  No se puede abrir
+  	</object>
+  	
+  	
+  	<h5><b>8. Copia del Certificado de la Suficiencia del Idioma Extranjero:</b></h5>
+  
+    <object  width="600" height="500"  type="image/png" data="@{Documentos.verSuficiencia(documentos.id)}#zoom=50" >
+	  No se puede abrir
+  	</object>
+  	
+  	<h5><b>9. Copia de Artículos Publicados en Revistas Indexadas:</b></h5>
+  
+    <object  width="600" height="500" data="@{Documentos.verArticulo(documentos.id)}#zoom=50" >
+	  No se puede abrir
+  	</object>
+  	
+</div>

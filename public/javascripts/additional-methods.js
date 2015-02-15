@@ -70,8 +70,9 @@ $.validator.addMethod("accept", function(value, element, param) {
 
 	// Either return true because we've validated each file, or because the
 	// browser does not support element.files and the FileList feature
+	//Please enter a value with a valid mimetype
 	return true;
-}, $.validator.format("Please enter a value with a valid mimetype."));
+}, $.validator.format("EL archivo seleccionado tiene un formato incorrecto."));
 
 $.validator.addMethod("alphanumeric", function(value, element) {
 	return this.optional(element) || /^\w+$/i.test(value);
