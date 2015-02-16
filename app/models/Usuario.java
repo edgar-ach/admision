@@ -1,8 +1,7 @@
 package models;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 import play.db.jpa.Model;
 
@@ -12,6 +11,8 @@ public class Usuario extends Model{
 	public String apellido;
 	public String email;
 	public String clave;
+	@OneToOne
+	public Dato datos;
 	public Usuario(String nombre, String apellido, String email, String clave) {
 		super();
 		this.nombre = nombre;

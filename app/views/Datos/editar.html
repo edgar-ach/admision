@@ -1,0 +1,107 @@
+#{extends 'main.html' /} #{set title:'index.html' /}
+
+<script>
+	$(document).ready(function() {
+		$(function() {
+			$("#añoMes").datepicker({
+				changeMonth : true,
+				changeYear : true
+			});
+		})
+
+	});
+</script>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<span class="glyphicon glyphicon-user"></span><strong>Información
+			Personal</strong>
+	</div>
+	<div class="panel-body">
+
+		<form class="form-horizontal" role="form" id="datos"
+			action="@{Datos.modif()}" method="post">
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Cédula:</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" placeholder="Cédula"
+						name="ced" id="nam" required="required" value="${user.datos.cedula}"> 
+						
+						
+						<span
+						class="label label-danger " id="n"></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Fecha de Nacimiento</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" placeholder="00/00/0000"
+						name="fecha" required="required" id="añoMes" value="${user.datos.fechaNac}"> <span
+						class="label label-danger " id="a" ></span>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Nacionalidad:</label>
+				<div class="col-lg-10" >
+					<select class="form-control" value="${user.datos.nacionalidad}" required="required" name="nac">
+						#{list items:nacion, as:'naci'}
+						<option>${naci}</option> #{/list}
+					</select>
+
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Provincia</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" placeholder="Cotopaxi"
+						required="required" name="prov" value="${user.datos.provincia}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Cantón</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" placeholder="Latacunga"
+						required="required" name="canton" value="${user.datos.canton}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Dirección</label>
+				<div class="col-lg-10">
+					<textarea class="form-control" placeholder="Calle 10 de agosto S/n"
+						required="required" name="dir" >${user.datos.direccionDom}</textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Célular</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" placeholder="0987654321"
+						required="required" name="cel" value="${user.datos.celular}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Teléfono</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control" placeholder="032145678"
+						required="required" name="tel" value="${user.datos.telefono}">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-lg-offset-2 col-lg-10">
+					<button type="submit" class="btn btn-success">Enviar</button>
+				</div>
+			</div>
+		</form>
+
+
+
+	</div>
+</div>
